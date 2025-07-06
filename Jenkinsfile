@@ -38,4 +38,23 @@ pipeline{
                 }
             }
         }
+        
+post {
+    success {
+        script {
+        emailext from: "rushihavan180501@gmail.com",
+            subject: "Demo app has been updated and deploy Successful",
+            body: "Build Successful",
+        to: "rc8621658@gmail.com"
+        }
+    }    
+    failure {
+        script {
+        emailext from: "rushihavan180501@gmail.com",
+            subject: "Demo app Build Failed",
+            body: "Build Unsuccessful",
+        to: "rc8621658@gmail.com"
+        }
+    }
+}        
     }
